@@ -600,7 +600,7 @@
                 </ScrollViewer>
               </Border>
             </Popup>
-            <ToggleButton BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButtonStyle}" />
+            <ToggleButton BorderBrush="{TemplateBinding BorderBrush}" Visibility="Visible" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButtonStyle}" Template="{DynamicResource ToggleButtonControlTemplateMenu}" />
             <ContentPresenter ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
             <Rectangle x:Name="focused" Stroke="{StaticResource ComboBoxFocusedBorderBrush}" StrokeThickness="1" Visibility="Collapsed" Grid.ColumnSpan="2" />
             <Rectangle x:Name="disabled" Fill="{StaticResource ComboBoxDisabledBackgroundBrush}" Visibility="Collapsed" Grid.ColumnSpan="2" />

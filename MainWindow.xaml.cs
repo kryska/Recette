@@ -25,6 +25,12 @@ namespace Recette
         public MainWindow()
         {
             InitializeComponent();
+            List<string> names = new List<string>();
+            names.Add("Add item");
+            names.Add("Import recipe");
+            cboRecipes.ItemsSource = names;
+            WindowState = WindowState.Maximized;
+            //btnRecipes.Visibility = Visibility.Collapsed;
         }
 
         private void Open_Click(object sender, RoutedEventArgs e) 
@@ -38,6 +44,12 @@ namespace Recette
         private void btnGrossery_Click(object sender, RoutedEventArgs e)
         {
             fraCentral.NavigationService.Navigate(new TestWindow());
+        }
+
+        private void btnRecipes_Click(object sender, RoutedEventArgs e)
+        {
+            //cboRecipes.MouseDown(cboRecipes, new MouseButtonEventArgs(mouse, 0, MouseButton.Left));
+            cboRecipes.IsDropDownOpen = true;
         }
     }
 }

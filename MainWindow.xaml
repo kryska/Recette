@@ -5,6 +5,9 @@
         xmlns:toolkitInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Recette.MainWindow" 
         Title="MainWindow" Height="768" Width="1024" MinHeight="600" MinWidth="600">
+    <Window.Resources>
+        <Style x:Key="ComboBoxStyleMenu" BasedOn="{StaticResource ComboBoxStyle}" TargetType="{x:Type ComboBox}" />
+    </Window.Resources>
 
     <Grid MinWidth="600">
         <Grid.RowDefinitions>
@@ -25,8 +28,8 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Rectangle RadiusX="5" RadiusY="5" Margin="0,10" Fill="White" Grid.ColumnSpan="6" Grid.Column="1"/>
-
-            <!--Button x:Name="btnRecipes" Margin="10,20,9.999,20" Grid.Column="2" Content="Recipes"/-->
+            <ComboBox x:Name="cboRecipes" Margin="10,20,10,20" Grid.Column="2" Style="{DynamicResource ComboBoxStyleMenu}"/>
+            <Button x:Name="btnRecipes" Margin="10,20,10,20" Grid.Column="2" Content="Recipes" Click="btnRecipes_Click"/>
             <Rectangle Width="1" Fill="#66000000" Grid.Column="2" Margin="0,20,-0.001,20" HorizontalAlignment="Right"/>
             <Button  x:Name="btnGrossery" Margin="10.001,20,10,20" Grid.Column="3" Content="Grossery" Click="btnGrossery_Click"/>
             <Rectangle Width="1" Fill="#66000000" Grid.Column="3" Margin="0,20,0,20" HorizontalAlignment="Right" d:LayoutOverrides="LeftMargin, RightMargin"/>

@@ -43,7 +43,65 @@
                 <Setter Property="FontFamily" Value="Segoe UI" />
                 <Setter Property="Foreground" Value="#FF00AADE" />
             </Style>
-
+            <ControlTemplate x:Key="ToggleButtonControlTemplateMenu" TargetType="{x:Type ToggleButton}">
+                <Grid>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="MouseOver">
+                                <Storyboard>
+                                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Fill" Storyboard.TargetName="Arrow">
+                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource GlyphHoverBackgroundBrush}" />
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="Pressed">
+                                <Storyboard>
+                                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Fill" Storyboard.TargetName="Arrow">
+                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource GlyphPressedBackgroundBrush}" />
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <Storyboard>
+                                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Fill" Storyboard.TargetName="Arrow">
+                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource GlyphDisabledBackgroundBrush}" />
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </VisualState>
+                        </VisualStateGroup>
+                        <VisualStateGroup x:Name="CheckStates">
+                            <VisualState x:Name="Checked">
+                                <Storyboard>
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ArrowSelected">
+                                        <DiscreteObjectKeyFrame KeyTime="0">
+                                            <DiscreteObjectKeyFrame.Value>
+                                                <Visibility>Collapsed</Visibility>
+                                            </DiscreteObjectKeyFrame.Value>
+                                        </DiscreteObjectKeyFrame>
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="Unchecked" />
+                            <VisualState x:Name="Indeterminate" />
+                        </VisualStateGroup>
+                        <VisualStateGroup x:Name="FocusStates">
+                            <VisualState x:Name="Focused" />
+                            <VisualState x:Name="Unfocused" />
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                    </Grid.ColumnDefinitions>
+                    <Rectangle x:Name="Bd" Fill="{StaticResource TransparentBrush}" Grid.ColumnSpan="2" />
+                    <Grid Grid.Column="1">
+                        <Rectangle Visibility="Collapsed" Width="1" Fill="{StaticResource ComboBoxToggleButtonDropDownSeparatorBackgroundBrush}" HorizontalAlignment="Left" Margin="-1,5,0,5" />
+                        <Path Visibility="Collapsed" x:Name="Arrow" Width="10" Height="6" Fill="{StaticResource GlyphBackgroundBrush}" Data="F1 M 301.14,-189.041L 311.57,-189.041L 306.355,-182.942L 301.14,-189.041 Z " Stretch="Fill" />
+                        <Path  x:Name="ArrowSelected" Width="10" Height="6" Visibility="Collapsed" Fill="{StaticResource GlyphPressedBackgroundBrush}" Data="F1 M 301.14,-189.041L 311.57,-189.041L 306.355,-182.942L 301.14,-189.041 Z " Stretch="Fill" />
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
