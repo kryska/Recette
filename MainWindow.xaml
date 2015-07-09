@@ -1,0 +1,49 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:toolkitLayout="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Layout.Toolkit"
+        xmlns:toolkitInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Recette.MainWindow" 
+        Title="MainWindow" Height="768" Width="1024" MinHeight="600" MinWidth="600">
+
+    <Grid MinWidth="600">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" MinHeight="30"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Image Source="Ressources/background (2).jpg" Stretch="UniformToFill" Grid.RowSpan="3"/>
+        <Grid MinWidth="600" MinHeight="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle RadiusX="5" RadiusY="5" Margin="0,10" Fill="White" Grid.ColumnSpan="6" Grid.Column="1"/>
+
+            <!--Button x:Name="btnRecipes" Margin="10,20,9.999,20" Grid.Column="2" Content="Recipes"/-->
+            <Rectangle Width="1" Fill="#66000000" Grid.Column="2" Margin="0,20,-0.001,20" HorizontalAlignment="Right"/>
+            <Button  x:Name="btnGrossery" Margin="10.001,20,10,20" Grid.Column="3" Content="Grossery" Click="btnGrossery_Click"/>
+            <Rectangle Width="1" Fill="#66000000" Grid.Column="3" Margin="0,20,0,20" HorizontalAlignment="Right" d:LayoutOverrides="LeftMargin, RightMargin"/>
+            <Button  x:Name="btnCategories" Margin="10,20" Grid.Column="4" Content="Categories"/>
+            <Rectangle Width="1" Fill="#66000000" Grid.Column="4" Margin="0,20,0,20" HorizontalAlignment="Right" d:LayoutOverrides="LeftMargin, RightMargin"/>
+            <Button x:Name="btnStats"  Margin="10,20,9.999,20" Grid.Column="5" Content="Stats"/>
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <ScrollViewer Grid.Column="1">
+                <Frame x:Uid="fraCentral" x:Name="fraCentral" NavigationUIVisibility="Hidden" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>
